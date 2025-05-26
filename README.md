@@ -26,25 +26,6 @@ Al finalizar este workshop, serás capaz de:
 
 ---
 
-## 🗺️ Mapa de progresión de conocimientos
-
-### Bloque 1: Fundamentos de Formularios en Angular
-
-- [Introducción a los formularios en Angular](1-fundamentos/1-introduccion.md)
-- [Formularios Template-driven](1-fundamentos/2-template-driven.md)
-- [Formularios Reactivos](1-fundamentos/3-reactive-forms.md)
-- [Data binding y control de formularios](1-fundamentos/4-data-binding.md)
-
-### Bloque 2: Validaciones y Gestión de Estado
-
-- [Validaciones integradas](2-validaciones/1-validaciones-integradas.md)
-- [Validaciones personalizadas](2-validaciones/2-validaciones-personalizadas.md)
-- [Validaciones asíncronas](2-validaciones/3-validaciones-asincronas.md)
-- [Mensajes de error y UX](2-validaciones/4-mensajes-error.md)
-- [Gestión de estado y feedback visual](2-validaciones/5-gestion-estado.md)
-
----
-
 ## 📚 Rutas de aprendizaje y práctica guiada
 
 La ruta de aprendizaje está organizada en tres bloques temáticos.  
