@@ -1,0 +1,33 @@
+<p>Registro con validacion asincrona de usuario y correo</p>
+
+<form [formGroup]="registroForm" (ngSubmit)="registrar()">
+  <input formControlName="usuario" placeholder="Escriba el usuario">
+  @if(registroForm.get('usuario')?.pending){
+    <div>verificando usuario...</div>
+  }
+  @if(registroForm.get('usuario')?.errors && registroForm.get('usuario')?.errors?.['usuarioExistente'] ){
+    <div>El usuario ya existe</div>
+  }
+  <input formControlName="correo" placeholder="Escriba el correo">
+  @if(registroForm.get('correo')?.pending){
+    <div>verificando correo...</div>
+  }
+  @if(registroForm.get('correo')?.errors && registroForm.get('correo')?.errors?.['emailExistente'] ){
+    <div>El correo ya existe</div>
+  }
+</form>
+
+
+<hr>
+
+<p>Validador asincrono en un formulario reactivo</p>
+
+<input [formControl]="usuario" placeholder="Usuario">
+<!-- cuando esta pendiente -->
+ @if(usuario.pending){
+   <div>Verificando disponibilidad...</div>
+ }
+ <!-- cuando hay algun error o el usuario ya exista -->
+ @if(usuario.errors && usuario.errors['usuarioExistente'] && usuario.touched){
+   <div>El usuario ya existe</div>
+ }

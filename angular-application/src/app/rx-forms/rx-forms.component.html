@@ -1,0 +1,43 @@
+<p>resetear un formulario al hacer click en un boton</p>
+<form [formGroup]="formularioValidacion">
+  <input formControlName="nombre" title="Nombre" placeholder="ingrese nombre">
+  <input formControlName="email" title="Email" placeholder="ingrese email">
+  <button title="Resetear" type="button" (click)="formularioValidacion.reset()">Resetear</button>
+</form>
+
+<hr>
+
+<p>Validacion de longitud minima</p>
+<input type="password" [formControl]="clave" title="Clave" placeholder="Ingrese clave">
+<!-- valida que no haya errores y que ese error no sea por el minimo de caracteres(6) -->
+@if (clave.errors && clave.errors['minlength']){
+  <div> la clave debe tener al menos 6 caracteres</div>
+}
+
+<hr>
+
+<p>Validacion via email</p>
+<input [formControl]="emailValidado" placeholder="email a validar">
+@if (emailValidado.invalid && emailValidado.touched){
+  <div>email invalido</div>
+}
+
+<hr>
+<p>Validacion requerida en un campo</p>
+<input [formControl]="nombreValidado" title="Nombre validado" placeholder="Nombre a validar">
+@if(nombreValidado.invalid && nombreValidado.touched) {
+  <div>el nombre es obligatorio</div>
+}
+
+<hr>
+<p>Formulario reactivo con varios campos</p>
+<form [formGroup]="formulario">
+  <input formControlName="nombreCompleto" placeholder="Nombre Completo">
+  <input formControlName="email" placeholder="Email">
+</form>
+<p>Nombre: {{formulario.value.nombreCompleto  }}, email: {{  formulario.value.email }}</p>
+<hr>
+
+<p>Formulario reactivo basico con un campo</p>
+<input type="text" title="nombre" [formControl]="nombre" placeholder="Nombre">
+<p>Nombre: {{ nombre.value  }}</p>

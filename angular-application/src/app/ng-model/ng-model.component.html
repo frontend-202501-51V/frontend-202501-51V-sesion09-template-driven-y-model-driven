@@ -1,0 +1,88 @@
+<p>Input con máscara de telefono</p>
+<p>ejm: 987 654 321</p>
+
+<input (input)="formatearTelefono()" [(ngModel)]="telefono" title="telefono" placeholder="987-654-321">
+<p>telefono formateado: {{ telefono }}</p>
+
+<hr>
+
+<p>input de email con validacion de formato</p>
+<!-- TODO: validacion de el patron y input email -->
+<form>
+  <input pattern=".+@example\.com"  [ngModelOptions]="{standalone: true}" required #c="ngModel" id="email" type="email" title="Email" placeholder="email" [(ngModel)]="correoConValidacion">
+</form>
+<!-- cuando sea el valor invalido y se haya interactuado con el -->
+@if( c.invalid && c.touched  ){
+  <p>correo invalido</p>
+}
+
+<hr>
+
+<p>Input requerido con validacion y mensaje</p>
+<input required title="Usuario" #u="ngModel" [(ngModel)]="usuario" placeholder="Usuario">
+@if( !u.valid && u.touched   ){
+  <p>El usuario es obligatorio</p>
+}
+
+<hr>
+
+<p>Formulario simple de contacto</p>
+<br>
+<input [(ngModel)]="contacto.email" placeholder="Email">
+<br>
+<input [(ngModel)]="contacto.nombre" placeholder="Nombre">
+<br>
+<textarea [(ngModel)]="contacto.mensaje" placeholder="Mensaje"></textarea>
+<p>
+  Nombre: {{contacto.nombre}}
+  Email: {{contacto.email}}
+  Mensaje: {{contacto.mensaje}}
+</p>
+
+<hr>
+
+<p>text area con ngModel</p>
+<textarea [(ngModel)]="comentario" title="Comentario"></textarea>
+<p>Comentario: {{ comentario  }}</p>
+
+<hr>
+<p>uso de select con ngModel</p>
+<select title="Pais"  [(ngModel)]="pais">
+  <option value= ''>Selecciona un pais</option>
+  <option value="PE">Peru</option>
+  <option value="MX">Mexico</option>
+  <option value="CO">Colombia</option>
+</select>
+<p>Pais seleccionado: {{ pais }}</p>
+
+<hr>
+<p>Radio buttons con ngModel</p>
+
+<label>
+  <input type="radio" [(ngModel)]="genero" value="m"> Masculino
+</label>
+<label>
+  <input type="radio" [(ngModel)]="genero" value="f"> femenino
+</label>
+<p>Genero seleccionado -> {{  genero === 'm' ? 'Masculino' : 'Femenino' }}</p>
+
+<hr>
+
+<p>input con checkbox y ngmodel</p>
+<input title="Suscribirse" type="checkbox" [(ngModel)]="suscrito"> Subscribirse
+@if(suscrito){
+  <p>!Gracias por suscribirte!</p>
+}
+<hr>
+
+<p>input numerico con number</p>
+<input type="number" placeholder="Edad" [(ngModel)]="edad">
+<p>Tienes {{ edad  }} anios</p>
+
+<hr>
+<p>input de texto con ngModel</p>
+
+<input type="text" placeholder="Escribe tu nombre" [(ngModel)]="nombre">
+<p>Hola, {{ nombre }}</p>
+
+<hr>

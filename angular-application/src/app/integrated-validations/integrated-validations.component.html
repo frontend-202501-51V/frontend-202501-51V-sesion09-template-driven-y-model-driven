@@ -1,0 +1,26 @@
+<p>validacion de patron basado en numeros</p>
+<p>ejm: 123, 970</p>
+<input [formControl]="telefono" title="Telefono" placeholder="telefono">
+<br>
+{{ telefono.errors | json  }}
+
+
+
+<hr>
+
+<p>validacion de longitud minima y maxima</p>
+<input [formControl]="usuario" title="Usuario" placeholder="Ingrese usaurio">
+<!-- {{usuario.errors | json }} -->
+<br>
+@if(usuario.errors && usuario.errors['required']){
+  <div>se requiere un usuario</div>
+}
+@if(usuario.errors && usuario.errors['minlength']){
+  <br>
+  <div>Minimo 3 caracteres</div>
+}
+@if(usuario.errors && usuario.errors['maxlength']){
+  <div>maximo 8 caracteres</div>
+}
+
+<hr>

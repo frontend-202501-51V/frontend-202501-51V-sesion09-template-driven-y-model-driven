@@ -1,0 +1,7 @@
+<input [formControl]="usuario" title="usuario" placeholder="ingrese usuario, no debe ser admin">
+
+@if(usuario.errors && usuario.errors['noAdmin']){
+  <div>no se permite admin como usuario</div>
+}
+
+<!-- {{ usuario.errors | json  }} -->
